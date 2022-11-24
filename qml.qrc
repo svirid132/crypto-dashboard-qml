@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Navigation.qml</file>
+        <file>Card.qml</file>
+        <file>IconButton.qml</file>
+        <file>HomePage.qml</file>
+        <file>TextFieldElem.qml</file>
+        <file>ArrowButton.qml</file>
+        <file>BigCard.qml</file>
+    </qresource>
+</RCC>

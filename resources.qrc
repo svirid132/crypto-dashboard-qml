@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/image">
+        <file alias="union.svg">image/Union.svg</file>
+        <file alias="landscapeIcon.svg">image/LandscapeIcon.svg</file>
+        <file alias="home.svg">image/Home.svg</file>
+        <file alias="loupe.svg">image/Loupe.svg</file>
+        <file alias="sushiSwap.svg">image/SushiSwap.svg</file>
+        <file alias="BNB.svg">image/BNB.svg</file>
+        <file alias="ETH.svg">image/ETH.svg</file>
+        <file alias="BTC.svg">image/BTC.svg</file>
+        <file alias="minusTriangle.svg">image/minusTriangle.svg</file>
+        <file alias="plusTriangle.svg">image/plusTriangle.svg</file>
+        <file alias="sushiSwapChart.svg">image/SushiSwapChart.svg</file>
+        <file alias="BNBChart.svg">image/BNBChart.svg</file>
+        <file alias="ETHChart.svg">image/ETHChart.svg</file>
+        <file alias="BTCChart.svg">image/BTCChart.svg</file>
+        <file alias="arrowBtn.svg">image/arrowBtn.svg</file>
+        <file alias="author_4.png">image/author_4.png</file>
+        <file alias="img_4.png">image/img_4.png</file>
+        <file alias="author_3.png">image/author_3.png</file>
+        <file alias="img_3.png">image/img_3.png</file>
+        <file alias="author_2.png">image/author_2.png</file>
+        <file alias="img_2.png">image/img_2.png</file>
+        <file alias="author_1.png">image/author_1.png</file>
+        <file alias="img_1.png">image/img_1.png</file>
+    </qresource>
+</RCC>
