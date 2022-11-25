@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import QtQuick.Shapes 1.11
+import QtQuick.Shapes 1.15
+import QtGraphicalEffects 1.12
 
 Rectangle {
     id: root
@@ -13,6 +14,10 @@ Rectangle {
 
     property alias mainImgSource: mainImg.source
     property alias authorImgSource: authorImg.source
+    property alias time: rectText.text
+    property alias autorName: text_1.text
+    property alias moneyText: moneyText.text
+    property alias title: text_2.text
 
     Image {
         id: mainImg
@@ -20,6 +25,7 @@ Rectangle {
         height: 152
         anchors.horizontalCenter: root.horizontalCenter
         anchors.top: root.top
+        anchors.topMargin: 8
     }
 
     Rectangle {
@@ -33,10 +39,10 @@ Rectangle {
         height: rectText.height + 12
         radius: 28
         Text {
-           id: rectText
-           text: '1h 35m 9s'
-           font.pixelSize: 8
-           anchors.centerIn: rect
+            id: rectText
+            text: '1h 35m 9s'
+            font.pixelSize: 8
+            anchors.centerIn: rect
         }
     }
 
@@ -51,13 +57,13 @@ Rectangle {
     }
 
     Text {
-       id: text_1
-       anchors.left: mainImg.left
-       anchors.top: mainImg.bottom
-       text: 'Malika Yanchenko'
-       anchors.topMargin: 8
-       color: '#43465C'
-       font.pixelSize: 12
+        id: text_1
+        anchors.left: mainImg.left
+        anchors.top: mainImg.bottom
+        text: 'Malika Yanchenko'
+        anchors.topMargin: 8
+        color: '#43465C'
+        font.pixelSize: 12
     }
 
     Text {
@@ -77,25 +83,47 @@ Rectangle {
         font.pixelSize: 12
         anchors.left: text_2.left
         anchors.top: text_2.bottom
-        anchors.topMargin: 8
+        anchors.topMargin: 18
     }
 
     Text {
+        id: moneyText
         text: '0.932 ETH'
         color: '#FFF'
         font.pixelSize: 12
         anchors.left: text_3.left
         anchors.top: text_3.bottom
+        anchors.topMargin: 4
     }
 
-//    Button {
-//        text: 'Bidded'
-//        background: Rectangle {
-//            gradient: ConicalGradient {
-//              angle: 102
-//              GradientStop { position: 0 ; color: "#AF53FF" }
-//              GradientStop { position: 1 ; color: '#6EACFE' }
-//            }
-//        }
-//    }
+
+    Button {
+        text: 'Bidded'
+        anchors.bottom: root.bottom
+        anchors.right: root.right
+        anchors.bottomMargin: 20
+        anchors.rightMargin: 12
+        font.family: "Helvetica"
+        horizontalPadding: 21
+        verticalPadding: 9
+        contentItem: Text {
+            text: parent.text
+            font.pixelSize: 12
+            color: '#FFF'
+        }
+        background: Rectangle {
+            id: rectBtn
+            radius: 8
+            LinearGradient {
+                anchors.fill: parent
+                source: rectBtn
+                start: Qt.point(0, 0)
+                end: Qt.point(parent.width, parent.height)
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#AF53FF" }
+                    GradientStop { position: 0.95; color: "#6EACFE" }
+                }
+            }
+        }
+    }
 }

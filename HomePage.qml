@@ -71,7 +71,7 @@ Rectangle {
             anchors.verticalCenter: item.verticalCenter
             anchors.left: item.left
             anchors.topMargin: 16
-            text: 'Top NF       T this month'
+            text: 'Top NFT this month'
             font.pixelSize: 24
             color: '#FFF'
         }
@@ -82,8 +82,49 @@ Rectangle {
         }
     }
 
-    BigCard {
-        mainImgSource: 'image/img_1.png'
-        authorImgSource: 'image/author_1.png'
+    Row {
+        id: cardRow
+        anchors.top: item.bottom
+        anchors.left: item.left
+        anchors.topMargin: 12
+        spacing: 8
+
+        BigCard {
+            mainImgSource: 'image/img_1.png'
+            authorImgSource: 'image/author_1.png'
+        }
+
+        BigCard {
+            mainImgSource: 'image/img_2.png'
+            authorImgSource: 'image/author_2.png'
+            autorName: 'Oscar Valdi'
+            moneyText: '0.529ETH'
+            title: 'Ring of eternity and love'
+        }
+
+        BigCard {
+            mainImgSource: 'image/img_3.png'
+            authorImgSource: 'image/author_3.png'
+            autorName: 'Kimmi Jon'
+            moneyText: '1.742 ETH'
+            title: 'Head sculpture #2'
+        }
+
+        BigCard {
+            mainImgSource: 'image/img_4.png'
+            authorImgSource: 'image/author_4.png'
+            autorName: 'Kayli Hifner'
+            moneyText: '1 ETH'
+            title: 'Thinking about the future'
+        }
+    }
+
+    Text {
+        anchors.top: cardRow.bottom
+        anchors.left: cardRow.left
+        anchors.topMargin: 16
+        text: 'Biggest transactions of the month'
+        font.pixelSize: 24
+        color: '#FFF'
     }
 }
