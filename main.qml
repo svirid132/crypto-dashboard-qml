@@ -17,8 +17,8 @@ Window {
         height: root.height
 
         CustomChart {
-            width: 400
-            height: 300
+            width: 340
+            height: 360
         }
 
         //        Navigation {
