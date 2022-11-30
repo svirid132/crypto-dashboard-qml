@@ -30,7 +30,7 @@ TextField {
                 anchors.centerIn: item
                 width: 20
                 height: 20
-                source: 'image/loupe.svg'
+                source: 'image/Loupe.svg'
             }
             ColorOverlay {
                     anchors.fill: image

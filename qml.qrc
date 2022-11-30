@@ -8,5 +8,9 @@
         <file>TextFieldElem.qml</file>
         <file>ArrowButton.qml</file>
         <file>BigCard.qml</file>
+        <file>CustomTableView.qml</file>
+        <file>CustomTableViewer.qml</file>
+        <file>CellTable.qml</file>
+        <file>CustomChart.qml</file>
     </qresource>
 </RCC>

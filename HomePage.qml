@@ -1,17 +1,77 @@
-import QtQuick 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.15
+import Qt.labs.qmlmodels 1.0
 
 Rectangle {
+    id: root
 
     color: 'transparent'
 
-    TextFieldElem {
-        x: 16
-        y: 16
+    Item {
+        id: itemRoot
+        anchors.top: root.top
+        anchors.left: root.left
+        anchors.right: root.right
+
+        TextFieldElem { }
+
+        Row {
+            anchors.top: itemRoot.top
+            anchors.right: itemRoot.right
+            spacing: 4
+            Rectangle {
+                height: 50
+                width: 50
+                color: '#171822'
+                border.width: 1
+                border.color: '#303241'
+                radius: 12
+                Image {
+                    source: 'image/heart.svg'
+                    anchors.centerIn: parent
+                }
+            }
+            Rectangle {
+                height: 50
+                width: 50
+                color: '#171822'
+                border.width: 1
+                border.color: '#303241'
+                radius: 12
+                Image {
+                    source: 'image/notification.svg'
+                    anchors.centerIn: parent
+                }
+            }
+            Rectangle {
+                height: 50
+                width: 175
+                color: '#171822'
+                border.width: 1
+                border.color: '#303241'
+                radius: 12
+                Item {
+                    anchors.fill: parent
+                    Text {
+                        text: '0x3a....oeQb'
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 16
+                        color: '#FFF'
+                    }
+                    Image {
+                        source: 'image/user.png'
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: 16
+                    }
+                }
+            }
+        }
     }
 
     Card {
         id: btcCard
-        x: 16
         y: 82
         imgLogoSource: 'image/BTC.svg'
         nameText: 'Bitcoin (24h)'
@@ -34,7 +94,6 @@ Rectangle {
 
     Card {
         id: bnbCard
-        x: 16
         y: 82
         imgLogoSource: 'image/BNB.svg'
         nameText: 'BNB (24h) '
@@ -48,13 +107,12 @@ Rectangle {
 
     Card {
         id: sushiCard
-        x: 16
         y: 82
-        imgLogoSource: 'image/sushiSwap.svg'
+        imgLogoSource: 'image/SushiSwap.svg'
         nameText: 'Sushi (24h)'
         proc: 2.31
         priceText: '438.76'
-        imgChartSource: 'image/sushiSwapChart.svg'
+        imgChartSource: 'image/SushiSwapChart.svg'
         anchors.left: bnbCard.right
         anchors.verticalCenter: bnbCard.verticalCenter
         anchors.leftMargin: 8
@@ -62,7 +120,6 @@ Rectangle {
 
     Item {
         id: item
-        x: 16
         y: 218
         width: 992
         height: 36
@@ -120,11 +177,19 @@ Rectangle {
     }
 
     Text {
+        id: mainText
         anchors.top: cardRow.bottom
         anchors.left: cardRow.left
         anchors.topMargin: 16
         text: 'Biggest transactions of the month'
         font.pixelSize: 24
         color: '#FFF'
+    }
+
+    CustomTableView {
+        width: 988
+        anchors.top: mainText.bottom
+        anchors.left: cardRow.left
+        height: 200
     }
 }

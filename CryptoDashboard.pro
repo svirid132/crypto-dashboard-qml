@@ -70,3 +70,6 @@ SOURCES += main.cpp
 #    qml/pages/HomePage.qml \
 #    qml/pages/LibraryPage.qml \
 #    qml/pages/SettingsPage.qml
+
+DISTFILES += \
+    CustomTableView.qml
