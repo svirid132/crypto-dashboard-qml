@@ -8,7 +8,7 @@ Rectangle  {
     border.color: '#22202A'
 
     Image {
-        source: "image/Union.svg"
+        source: "image/union.svg"
         sourceSize.width: 34
         sourceSize.height: 36
         x: 15
@@ -17,31 +17,31 @@ Rectangle  {
 
     IconButton {
         id: homeBtn
-        imgSource: 'image/Home.svg'
+        imgSource: 'image/home.svg'
         y: 142
     }
 
     IconButton {
         id: picBtn_1
-        imgSource: 'image/LandscapeIcon.svg'
+        imgSource: 'image/landscapeIcon.svg'
         y: 190
     }
 
     IconButton {
         id: picBtn_2
-        imgSource: 'image/LandscapeIcon.svg'
+        imgSource: 'image/landscapeIcon.svg'
         y: 238
     }
 
     IconButton {
         id: picBtn_3
-        imgSource: 'image/LandscapeIcon.svg'
+        imgSource: 'image/landscapeIcon.svg'
         y: 286
     }
 
     IconButton {
         id: picBtn_4
-        imgSource: 'image/LandscapeIcon.svg'
+        imgSource: 'image/landscapeIcon.svg'
         y: 334
     }
 }

@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 
 TextField {
     id: textField
-    width: 234
+    width: 404
     placeholderText: qsTr("Search Market")
     placeholderTextColor: '#666873'
     font.pixelSize: 16
@@ -30,7 +30,7 @@ TextField {
                 anchors.centerIn: item
                 width: 20
                 height: 20
-                source: 'image/Loupe.svg'
+                source: 'image/loupe.svg'
             }
             ColorOverlay {
                     anchors.fill: image

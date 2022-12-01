@@ -16,22 +16,17 @@ Window {
         width: root.width
         height: root.height
 
-        CustomChart {
-            width: 340
-            height: 360
+        Navigation {
+            id: navigation
+            anchors.left: itemRoot.left
+            height: root.height
         }
 
-        //        Navigation {
-        //            id: navigation
-        //            anchors.left: itemRoot.left
-        //            height: root.height
-        //        }
-
-        //        HomePage {
-        //            anchors.top: itemRoot.top
-        //            anchors.left: navigation.right
-        //            anchors.right: itemRoot.right
-        //            anchors.margins: 16
-        //        }
+        HomePage {
+            anchors.top: itemRoot.top
+            anchors.left: navigation.right
+            anchors.right: itemRoot.right
+            anchors.margins: 16
+        }
     }
 }

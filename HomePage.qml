@@ -7,189 +7,122 @@ Rectangle {
 
     color: 'transparent'
 
-    Item {
-        id: itemRoot
-        anchors.top: root.top
-        anchors.left: root.left
-        anchors.right: root.right
-
-        TextFieldElem { }
+    Column {
+        spacing: 16
+        HeaderHomePage {}
 
         Row {
-            anchors.top: itemRoot.top
-            anchors.right: itemRoot.right
-            spacing: 4
-            Rectangle {
-                height: 50
-                width: 50
-                color: '#171822'
-                border.width: 1
-                border.color: '#303241'
-                radius: 12
-                Image {
-                    source: 'image/heart.svg'
-                    anchors.centerIn: parent
-                }
-            }
-            Rectangle {
-                height: 50
-                width: 50
-                color: '#171822'
-                border.width: 1
-                border.color: '#303241'
-                radius: 12
-                Image {
-                    source: 'image/notification.svg'
-                    anchors.centerIn: parent
-                }
-            }
-            Rectangle {
-                height: 50
-                width: 175
-                color: '#171822'
-                border.width: 1
-                border.color: '#303241'
-                radius: 12
-                Item {
-                    anchors.fill: parent
-                    Text {
-                        text: '0x3a....oeQb'
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: parent.left
-                        anchors.leftMargin: 16
-                        color: '#FFF'
-                    }
-                    Image {
-                        source: 'image/user.png'
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: parent.right
-                        anchors.rightMargin: 16
+            spacing: 16
+            Column {
+                spacing: 16
+                Row {
+                    spacing: 10
+                    Repeater {
+                        id: repeater
+                        model: 4
+                        Card {
+                            id: card
+                            function infoCard(index) {
+                                const items = [
+                                                {imgLogoSource: 'image/BTC.svg', nameText:'Bitcoin (24h)', proc: 2.31, priceText: '32,482.44',imgChartSource: 'image/BTCChart.svg'},
+                                                {imgLogoSource: 'image/ETH.svg', nameText: 'Ethereum (24h)', proc: 12.31, priceText: '1,021.49', imgChartSource: 'image/ETHChart.svg'},
+                                                {imgLogoSource: 'image/BNB.svg', nameText: 'BNB (24h)', proc: -10.4, priceText: '9,589.55', imgChartSource: 'image/BNBChart.svg'},
+                                                {imgLogoSource: 'image/sushiSwap.svg', nameText: 'Sushi (24h)', proc: 2.31, priceText: '438.76',imgChartSource: 'image/sushiSwapChart.svg'},
+                                            ]
+                                return items[index]
+                            }
+                            imgLogoSource: infoCard(index).imgLogoSource
+                            nameText: infoCard(index).nameText
+                            proc: infoCard(index).proc
+                            priceText: infoCard(index).priceText
+                            imgChartSource: infoCard(index).imgChartSource
+                        }
                     }
                 }
+                Control {
+                    topPadding: 10
+                    contentItem: Item {
+                        implicitWidth: 998
+                        implicitHeight: textElem.height
+                        Label {
+                            id: textElem
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            text: 'Top NFT this month'
+                            font.pixelSize: 24
+                            color: '#FFF'
+                        }
+                        ArrowButton {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+                Row {
+                    id: cardRow
+                    spacing: 10
+
+                    Repeater {
+                        model: 4
+                        BigCard {
+                            function infoBigCard(index) {
+                                const items = [
+                                                {mainImgSource: 'image/img_1.png', authorImgSource:'image/author_1.png', autorName: 'Malika Yanchenko', moneyText: '0.932 ETH', title: 'Pandora Street Key #5'},
+                                                {mainImgSource: 'image/img_2.png', authorImgSource: 'image/author_2.png', autorName: 'Oscar Valdi', moneyText: '0.529ETH', title: 'Ring of eternity and love'},
+                                                {mainImgSource: 'image/img_3.png', authorImgSource: 'image/author_3.png', autorName: 'Kimmi Jon', moneyText: '1.742 ETH', title: 'Head sculpture #2'},
+                                                {mainImgSource: 'image/img_4.png', authorImgSource: 'image/author_4.png', autorName: 'Kayli Hifner', moneyText: '1 ETH', title: 'Thinking about the future'},
+                                            ]
+                                return items[index]
+                            }
+                            mainImgSource: infoBigCard(index).mainImgSource
+                            authorImgSource: infoBigCard(index).authorImgSource
+                            autorName: infoBigCard(index).autorName
+                            moneyText: infoBigCard(index).moneyText
+                            title: infoBigCard(index).title
+                        }
+                    }
+                }
+                Control {
+                    topPadding: 10
+                    contentItem: Item {
+                        implicitWidth: 998
+                        implicitHeight: textElem1.height
+                        Label {
+                            id: textElem1
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            text: 'Biggest transactions of the month'
+                            font.pixelSize: 24
+                            color: '#FFF'
+                        }
+                        ArrowButton {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                }
+                CustomTableView { height: 220; width: 998 }
+            }
+
+            Column {
+                spacing: 12
+                Rectangle {
+                    width: 340
+                    height: 340
+                    color: '#151823'
+                }
+
+                Rectangle {
+                    width: 340
+                    height: 92
+                    color: '#151823'
+                }
+
+                CustomChart {
+                    width: 340
+                    height: 360
+                }
             }
         }
-    }
-
-    Card {
-        id: btcCard
-        y: 82
-        imgLogoSource: 'image/BTC.svg'
-        nameText: 'Bitcoin (24h)'
-        proc: 2.31
-        priceText: '32,482.44'
-        imgChartSource: 'image/BTCChart.svg'
-    }
-
-    Card {
-        id: ethCard
-        imgLogoSource: 'image/ETH.svg'
-        nameText: 'Ethereum (24h) '
-        proc: 12.31
-        priceText: '1,021.49'
-        imgChartSource: 'image/ETHChart.svg'
-        anchors.left: btcCard.right
-        anchors.verticalCenter: btcCard.verticalCenter
-        anchors.leftMargin: 8
-    }
-
-    Card {
-        id: bnbCard
-        y: 82
-        imgLogoSource: 'image/BNB.svg'
-        nameText: 'BNB (24h) '
-        proc: -10.4
-        priceText: '9,589.55'
-        imgChartSource: 'image/BNBChart.svg'
-        anchors.left: ethCard.right
-        anchors.verticalCenter: ethCard.verticalCenter
-        anchors.leftMargin: 8
-    }
-
-    Card {
-        id: sushiCard
-        y: 82
-        imgLogoSource: 'image/SushiSwap.svg'
-        nameText: 'Sushi (24h)'
-        proc: 2.31
-        priceText: '438.76'
-        imgChartSource: 'image/SushiSwapChart.svg'
-        anchors.left: bnbCard.right
-        anchors.verticalCenter: bnbCard.verticalCenter
-        anchors.leftMargin: 8
-    }
-
-    Item {
-        id: item
-        y: 218
-        width: 992
-        height: 36
-        Text {
-            id: textElem
-            anchors.verticalCenter: item.verticalCenter
-            anchors.left: item.left
-            anchors.topMargin: 16
-            text: 'Top NFT this month'
-            font.pixelSize: 24
-            color: '#FFF'
-        }
-
-        ArrowButton {
-            anchors.right: item.right
-            anchors.verticalCenter: item.verticalCenter
-        }
-    }
-
-    Row {
-        id: cardRow
-        anchors.top: item.bottom
-        anchors.left: item.left
-        anchors.topMargin: 12
-        spacing: 8
-
-        BigCard {
-            mainImgSource: 'image/img_1.png'
-            authorImgSource: 'image/author_1.png'
-        }
-
-        BigCard {
-            mainImgSource: 'image/img_2.png'
-            authorImgSource: 'image/author_2.png'
-            autorName: 'Oscar Valdi'
-            moneyText: '0.529ETH'
-            title: 'Ring of eternity and love'
-        }
-
-        BigCard {
-            mainImgSource: 'image/img_3.png'
-            authorImgSource: 'image/author_3.png'
-            autorName: 'Kimmi Jon'
-            moneyText: '1.742 ETH'
-            title: 'Head sculpture #2'
-        }
-
-        BigCard {
-            mainImgSource: 'image/img_4.png'
-            authorImgSource: 'image/author_4.png'
-            autorName: 'Kayli Hifner'
-            moneyText: '1 ETH'
-            title: 'Thinking about the future'
-        }
-    }
-
-    Text {
-        id: mainText
-        anchors.top: cardRow.bottom
-        anchors.left: cardRow.left
-        anchors.topMargin: 16
-        text: 'Biggest transactions of the month'
-        font.pixelSize: 24
-        color: '#FFF'
-    }
-
-    CustomTableView {
-        width: 988
-        anchors.top: mainText.bottom
-        anchors.left: cardRow.left
-        height: 200
     }
 }

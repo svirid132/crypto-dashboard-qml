@@ -12,5 +12,7 @@
         <file>CustomTableViewer.qml</file>
         <file>CellTable.qml</file>
         <file>CustomChart.qml</file>
+        <file>CustomCheckBox.qml</file>
+        <file>HeaderHomePage.qml</file>
     </qresource>
 </RCC>

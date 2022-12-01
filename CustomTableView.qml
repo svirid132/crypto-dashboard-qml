@@ -35,7 +35,6 @@ Item {
         id: table
 
         anchors.top: horizontalHeader.bottom
-        anchors.left: verticalHeader.right
 
         width: root.width
         height: root.height
