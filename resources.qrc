@@ -26,6 +26,9 @@
         <file alias="user.png">image/user.png</file>
         <file alias="heart.svg">image/heart.svg</file>
         <file alias="notification.svg">image/notification.svg</file>
+        <file alias="refresh.svg">image/refresh.svg</file>
+        <file alias="techer.svg">image/tether.svg</file>
+        <file alias="leftArrow.svg">image/leftArrow.svg</file>
     </qresource>
     <qresource prefix="/icon">
         <file alias="ok.svg">image/icon/ok.svg</file>

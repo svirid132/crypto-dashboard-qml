@@ -4,8 +4,10 @@ import QtCharts 2.15
 
 Window {
     id: root
-    width: 1440
-    height: 900
+    minimumWidth: 1440
+    maximumWidth: 1440
+    minimumHeight: 900
+    maximumHeight: 900
     visible: true
     title: qsTr("Crypto Dashboard")
 

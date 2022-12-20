@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
 import Qt.labs.qmlmodels 1.0
+import QtQuick.Layouts 1.15
 
 Rectangle {
     id: root
@@ -107,17 +108,127 @@ Rectangle {
             Column {
                 spacing: 12
                 Rectangle {
+                    color: '#151823'
                     width: 340
                     height: 340
-                    color: '#151823'
+                    border.color: '#303241'
+                    border.width: 1
+                    radius: 12
+                    Column {
+                        id: column
+                        width: parent.width
+                        spacing: 15
+                        padding: 16
+                        property int fullWidth: width - leftPadding - rightPadding
+                        Rectangle {
+                            width: parent.fullWidth
+                            height: 24
+                            color: 'transparent'
+                            Text {
+                                color: '#fff'
+                                anchors.left: parent.left
+                                text: 'Exchange'
+                                font.pixelSize: 20
+                            }
+                            Image {
+                                source: 'qrc:/image/refresh.svg'
+                                width: 24
+                                height: 24
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.right: parent.right
+                            }
+                        }
+
+                        Rectangle {
+                            height: 20
+                            width: parent.fullWidth
+                            color: 'transparent'
+                            Text {
+                                id: numBtc
+                                text: '1'
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: '#fff'
+                                anchors.left: parent.left
+                            }
+                            Text {
+                                text: ' BTC'
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: '#43465C'
+                                anchors.left: numBtc.right
+                            }
+                            Image {
+                                source: 'qrc:/image/leftArrow.svg'
+                                width: 24
+                                height: 24
+                                anchors.verticalCenter: parent.verticalCenter
+                                x: 100
+                            }
+                            Text {
+                                id: numUsdt
+                                text: '52,415.31'
+                                anchors.right: usdt.left
+                                verticalAlignment: Text.AlignVCenter
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: '#fff'
+                            }
+                            Text {
+                                id: usdt
+                                text: ' USDT'
+                                anchors.right: parent.right
+                                anchors.verticalCenter: parent.verticalCenter
+                                color: '#43465C'
+                            }
+                        }
+
+                        CustomComboBox {
+                            label: 'Get'
+                            model: ['6000']
+                            iconSource: 'qrc:/image/techer.svg'
+                        }
+
+                        CustomComboBox {
+                            id: payComboBox
+                            label: 'Pay'
+                            model: ['0.8511']
+                            iconSource: 'qrc:/image/BTC.svg'
+                        }
+                    }
+
+                    CustomButton {
+                        text: 'Exchange'
+                        anchors.top: column.bottom
+                        anchors.topMargin: 5
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: column.fullWidth
+                    }
                 }
 
                 Rectangle {
                     width: 340
                     height: 92
                     color: '#151823'
+                    border.color: '#303241'
+                    border.width: 1
+                    radius: 12
+                    CircleProgressBar {
+                        x: 23
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: '80% of transactions'
+                        font.pixelSize: 20
+                        color: '#FFFFFF'
+                        x: 94
+                        y: 20
+                    }
+                    Text {
+                        text: 'Absolutely on this platform'
+                        font.pixelSize: 12
+                        color: '#43465C'
+                        x: 94
+                        y: 48
+                    }
                 }
-
                 CustomChart {
                     width: 340
                     height: 360

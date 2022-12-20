@@ -96,34 +96,10 @@ Rectangle {
         anchors.topMargin: 4
     }
 
-
-    Button {
-        text: 'Bidded'
+    CustomButton {
         anchors.bottom: root.bottom
         anchors.right: root.right
         anchors.bottomMargin: 20
         anchors.rightMargin: 12
-        font.family: "Helvetica"
-        horizontalPadding: 21
-        verticalPadding: 9
-        contentItem: Text {
-            text: parent.text
-            font.pixelSize: 12
-            color: '#FFF'
-        }
-        background: Rectangle {
-            id: rectBtn
-            radius: 8
-            LinearGradient {
-                anchors.fill: parent
-                source: rectBtn
-                start: Qt.point(0, 0)
-                end: Qt.point(parent.width, parent.height)
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#AF53FF" }
-                    GradientStop { position: 0.95; color: "#6EACFE" }
-                }
-            }
-        }
     }
 }
